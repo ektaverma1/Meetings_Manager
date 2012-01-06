@@ -3,7 +3,7 @@ class MeetingsController < ApplicationController
   # GET /meetings.json
   def index
     @meetings = Meeting.all
-
+    @attendees = Attendee.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @meetings }
@@ -14,7 +14,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.json
   def show
     @meeting = Meeting.find(params[:id])
-
+    @attendee =Attendee.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @meeting }
@@ -41,8 +41,9 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
+    # logger.info "@@@@@@@@@@@@@@@@@@@@@@@#{params[:attendees].inspect}"
+    params[:meeting][:attendees_ids] = params[:attendees_ids]
     @meeting = Meeting.new(params[:meeting])
-
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, :notice => 'Meeting was successfully created.' }

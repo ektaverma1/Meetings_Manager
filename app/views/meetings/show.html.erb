@@ -31,8 +31,10 @@
 </p>
 
 <p>
-  <b>Attendee:</b>
-  <%= @meeting.attendee_id %>
+  <b>Attendee(s):</b>
+  <% @attendee.each do |attendee|%>
+  <%= attendee.name %>
+  <% end %>
 </p>
 
 

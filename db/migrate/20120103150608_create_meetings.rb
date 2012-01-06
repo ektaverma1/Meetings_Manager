@@ -7,8 +7,6 @@ class CreateMeetings < ActiveRecord::Migration
       t.date :meeting_date
       t.time :start_time
       t.time :end_time
-      t.string :attendee_id
-
       t.timestamps
     end
   end

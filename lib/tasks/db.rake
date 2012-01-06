@@ -37,7 +37,7 @@ namespace :db do
             :meeting_date => Date.today,
             :start_time => Time.now,
             :end_time => Time.now + 2.minute,
-            :attendee_id => attendee.id
+            :attendees_ids => attendee.id
           )
         end
       end

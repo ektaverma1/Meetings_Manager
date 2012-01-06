@@ -8,7 +8,7 @@
     <th>Meeting date</th>
     <th>Start time</th>
     <th>End time</th>
-    <th>Attendee</th>
+    <th>No of Attendee(s) </th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,7 +22,7 @@
     <td><%= meeting.meeting_date %></td>
     <td><%= meeting.start_time %></td>
     <td><%= meeting.end_time %></td>
-    <td><%= meeting.attendee_id %></td>
+    <td><%=@attendees.length %> </td>
     <td><%= link_to 'Show', meeting %></td>
     <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
     <td><%= link_to 'Destroy', meeting, :confirm => 'Are you sure?', :method => :delete %></td>
