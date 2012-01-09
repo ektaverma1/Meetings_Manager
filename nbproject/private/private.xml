@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/D:/RubySyncUp/app/views/meetings/index.html.erb</file>
-        <file>file:/D:/RubySyncUp/app/controllers/attendees_controller.rb</file>
-        <file>file:/D:/RubySyncUp/app/views/meetings/_form.html.erb</file>
-        <file>file:/D:/RubySyncUp/app/controllers/meetings_controller.rb</file>
-        <file>file:/D:/RubySyncUp/log/development.log</file>
-    </open-files>
 </project-private>

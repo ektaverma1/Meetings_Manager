@@ -24,24 +24,24 @@ namespace :db do
   desc "populate meetings"
   task :populate_meetings => [:environment] do
     Meeting.delete_all
-    meetings = ["Meeting for Agile conf","WoW meeting","Ruby Sync Meeting"]
-    attendees = Attendee.all
-    meeting_types = MeetingType.all
-    attendees.each do |attendee|
-      meeting_types.each do |meeting_type|
-        meetings.each do |meeting|
-          Meeting.create(
-            :name => meeting,
-            :meeting_type_id => meeting_type.id,
-            :description => "This is the description of #{meeting}",
-            :meeting_date => Date.today,
-            :start_time => Time.now,
-            :end_time => Time.now + 2.minute,
-            :attendees_ids => attendee.id
-          )
-        end
-      end
-    end
+#    meetings = ["Meeting for Agile conf","WoW meeting","Ruby Sync Meeting"]
+#    attendees = Attendee.all
+#    meeting_types = MeetingType.all
+#    attendees.each do |attendee|
+#      meeting_types.each do |meeting_type|
+#        meetings.each do |meeting|
+#          Meeting.create(
+#            :name => meeting,
+#            :meeting_type_id => meeting_type.id,
+#            :description => "This is the description of #{meeting}",
+#            :meeting_date => Date.today,
+#            :start_time => Time.now,
+#            :end_time => Time.now + 2.minute,
+#            :attendees_ids => attendee.id
+#          )
+#        end
+#      end
+#    end
   end
   task :seed => [:populate_attendees ,:populate_meeting_types ,:populate_meetings]
 end

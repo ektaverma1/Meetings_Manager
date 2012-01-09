@@ -4,6 +4,8 @@ class MeetingsController < ApplicationController
   def index
     @meetings = Meeting.all
     @attendees = Attendee.all
+    #    @m=Meeting.find_by_id(params[:id])
+    #    @a=@m.attendees_ids
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @meetings }
@@ -14,7 +16,8 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.json
   def show
     @meeting = Meeting.find(params[:id])
-    @attendee =Attendee.all
+    @attendee_arr =Meeting.find_by_id(params[:id])
+    @attendee = @attendee_arr.attendees_ids
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @meeting }
@@ -35,7 +38,8 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
-    @meeting = Meeting.find(params[:id])
+    #    @meeting = Meeting.find(params[:id])
+    @meeting = Meeting.find(params[:all_meeting_types])
   end
 
   # POST /meetings
