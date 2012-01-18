@@ -1,0 +1,11 @@
+
+<p id="notice"><%= notice %></p>
+<b> Attendee(s) Name :</b>
+<p>
+  <% @attendees.each do |a| %>
+    <%= a.name %>
+    <%= link_to 'Delete Attendee' %>
+    <br/>
+  <% end %>
+</p>
+

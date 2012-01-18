@@ -1,6 +1,7 @@
 class MeetingType < ActiveRecord::Base
   has_many :meetings
-
+  has_and_belongs_to_many :attendees
+  
   validates :name , :presence => true
 
   def self.get_all_meeting_type

@@ -3,7 +3,13 @@ RubySyncUp::Application.routes.draw do
 
   resources :attendees
 
-  resources :meeting_types
+
+  resources :meeting_types do
+  member do
+    post 'add_attendees'
+    get 'num_of_attendees'
+  end
+end
 
   get "home/index"
 

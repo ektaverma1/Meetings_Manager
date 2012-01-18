@@ -14,13 +14,34 @@ class MeetingTypesController < ApplicationController
   # GET /meeting_types/1.json
   def show
     @meeting_type = MeetingType.find(params[:id])
-
+    @attendee = Attendee.find(:all).collect{|a| [a.name,a.id]}
+    #logger.info "==================#{@attendee.inspect}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @meeting_type }
     end
   end
 
+
+  def add_attendees
+    attendees = Attendee.find(params[:attendee_ids])
+    meeting_type = MeetingType.find(params[:id])
+    if meeting_type.attendees.include?(attendees)
+      flash[:notice] = 'Attendee already belongs to this meeting type.'
+    else
+      meeting_type.attendees << attendees
+      flash[:notice] = 'Attendee(s) has been added to meeting type.'
+    end
+    redirect_to meeting_type_url
+  end
+
+  def num_of_attendees
+    @m = MeetingType.find(params[:meeting_type_id])
+    result = {}
+    @attendees = @m.attendees
+    #    @m.meeting_type.attendees.each {|attendee| result[attendee.id] = attendee.name}
+    #    @attendees = result.each_value {|value| puts value }
+  end
   # GET /meeting_types/new
   # GET /meeting_types/new.json
   def new

@@ -14,7 +14,6 @@ class AttendeesController < ApplicationController
   # GET /attendees/1.json
   def show
     @attendee = Attendee.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @attendee }
@@ -25,7 +24,6 @@ class AttendeesController < ApplicationController
   # GET /attendees/new.json
   def new
     @attendee = Attendee.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @attendee }
@@ -35,6 +33,7 @@ class AttendeesController < ApplicationController
   # GET /attendees/1/edit
   def edit
     @attendee = Attendee.find(params[:id])
+    @meeting_types = MeetingType.find(:all)
   end
 
   # POST /attendees
