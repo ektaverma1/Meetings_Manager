@@ -22,7 +22,6 @@ class MeetingTypesController < ApplicationController
     end
   end
 
-
   def add_attendees
     attendees = Attendee.find(params[:attendee_ids])
     meeting_type = MeetingType.find(params[:id])
@@ -32,6 +31,14 @@ class MeetingTypesController < ApplicationController
       meeting_type.attendees << attendees
       flash[:notice] = 'Attendee(s) has been added to meeting type.'
     end
+    redirect_to meeting_type_url
+  end
+
+  def delete_attendee
+    attendee = Attendee.find(params[:attendee_id])
+    meeting_type = MeetingType.find(params[:id])
+    meeting_type.attendees.delete(attendee)
+    flash[:notice] = 'Attendee has been deleted from meeting type.'
     redirect_to meeting_type_url
   end
 

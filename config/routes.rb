@@ -8,6 +8,7 @@ RubySyncUp::Application.routes.draw do
   member do
     post 'add_attendees'
     get 'num_of_attendees'
+    get 'delete_attendee'
   end
 end
 

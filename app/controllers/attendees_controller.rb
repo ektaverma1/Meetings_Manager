@@ -33,7 +33,7 @@ class AttendeesController < ApplicationController
   # GET /attendees/1/edit
   def edit
     @attendee = Attendee.find(params[:id])
-    @meeting_types = MeetingType.find(:all)
+    #@meeting_types = MeetingType.find(:all)
   end
 
   # POST /attendees
