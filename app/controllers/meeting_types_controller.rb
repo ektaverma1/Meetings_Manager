@@ -15,7 +15,6 @@ class MeetingTypesController < ApplicationController
   def show
     @meeting_type = MeetingType.find(params[:id])
     @attendee = Attendee.find(:all).collect{|a| [a.name,a.id]}
-    #logger.info "==================#{@attendee.inspect}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @meeting_type }

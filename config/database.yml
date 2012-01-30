@@ -17,11 +17,13 @@ development:
 test:
   adapter: mysql
   database: syncup_test
+  username: root
+  password:
   pool: 5
   timeout: 5000
-
-production:
-  adapter: mysql
-  database: syncup_prod
-  pool: 5
-  timeout: 5000
+#
+#production:
+#  adapter: mysql
+#  database: syncup_prod
+#  pool: 5
+#  timeout: 5000

@@ -1,16 +1,20 @@
 RubySyncUp::Application.routes.draw do
-  resources :meetings
+  resources :meetings do
+    collection do
+      get 'num_of_attendees'
+    end
+  end
 
   resources :attendees
 
 
   resources :meeting_types do
-  member do
-    post 'add_attendees'
-    get 'num_of_attendees'
-    get 'delete_attendee'
+    member do
+      post 'add_attendees'
+      get 'num_of_attendees'
+      get 'delete_attendee'
+    end
   end
-end
 
   get "home/index"
 
@@ -63,7 +67,7 @@ end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home#index'
+  root :to => 'home#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

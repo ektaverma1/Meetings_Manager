@@ -3,14 +3,17 @@ class MeetingsController < ApplicationController
   # GET /meetings.json
   def index
     @meetings = Meeting.all
-    #    m = Meeting.find 124
-    #    @attendees = Attendee.find(:all,:conditions => ["id in (?)",m.attendees_ids])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @meetings }
     end
   end
 
+  def num_of_attendees
+    result = {}
+    @meeting_type = MeetingType.find(params[:type])
+    @attendees = @meeting_type.attendees
+  end
   # GET /meetings/1
   # GET /meetings/1.json
   def show
@@ -27,14 +30,14 @@ class MeetingsController < ApplicationController
   # GET /meetings/new.json
   def new
     @meeting = Meeting.new
-    #    @attendees = Attendee.all
+    #@attendees = Attendee.all
     @all_meeting_types = MeetingType.get_all_meeting_type.collect{|m| [m.name,m.id]}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @meeting }
     end
   end
-
+  
   # GET /meetings/1/edit
   def edit
     @meeting = Meeting.find(params[:id])
@@ -43,8 +46,6 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    # logger.info "@@@@@@@@@@@@@@@@@@@@@@@#{params[:attendees].inspect}"
-    #    params[:meeting][:attendees_ids] = params[:attendees_ids]
     @meeting = Meeting.new(params[:meeting])
     respond_to do |format|
       if @meeting.save

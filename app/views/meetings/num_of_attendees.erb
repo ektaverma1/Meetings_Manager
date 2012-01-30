@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<b> Attendee(s) Name :</b>
+<p>
+<table>
+  <tr>
+    <% @attendees.each do |attendee| %>
+      <td> <%= attendee.name %></td>
+    <% end %>
+  </tr>
+</table>
+</p>
+
