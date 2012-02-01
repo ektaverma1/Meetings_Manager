@@ -12,6 +12,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
   <% @meetings.each do |meeting| %>
@@ -22,10 +23,11 @@
       <td><%= meeting.meeting_date %></td>
       <td><%= meeting.start_time %></td>
       <td><%= meeting.end_time %></td>
-      <td><%= link_to meeting.meeting_type.attendees.count ,num_of_attendees_meetings_url(:type => meeting.meeting_type.id) %></td>
+      <td><%= link_to meeting.meeting_type.attendees.count ,num_of_attendees_meetings_url(:type => meeting.meeting_type.id) %></td> 
       <td><%= link_to 'Show', meeting %></td>
       <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
       <td><%= link_to 'Destroy', meeting, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Notify Attendee(s)' %> </td>
     </tr>
   <% end %>
 </table>
